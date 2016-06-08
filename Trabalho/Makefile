@@ -1,4 +1,4 @@
-FILE = trabalho
+FILE = trabalhoTP
 
 
 all :

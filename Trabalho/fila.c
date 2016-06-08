@@ -22,14 +22,18 @@ Fila* Fila_inicializa (){
 
 // imprime os elementos da fila
 void Fila_imprime (Fila *f){
-	NoFila *aux; /* variavel auxiliar para percorrer a fila - IFES 2013*/
+	NoFila *aux; /* variavel auxiliar para percorrer a fila */
 
 	if(f->ini != NULL){
 		printf("\n\t\tElementos da Fila\n\n");
-		printf("\t\tini -> ");
+		printf("\t\tPEDIDOS: \n");
 		for (aux = f->ini; aux != NULL; aux = aux->prox)
-			printf("|%d| ", aux->info);
-		printf("<- fim");
+			printf("|NUMERO DO PED: %d| \n", aux->info.numero);
+			printf("|CPF DO PED: %s| \n", aux->info.cpf);
+			printf("|COR DO PED: %s| \n", aux->info.cor);
+			printf("|ALTURA DO PED: %f| \n", aux->info.altura);
+			printf("|LARGURA DO PED: %f| \n", aux->info.largura);
+		printf("<- fim \n");
 	}else{
 		printf("\n\t\tFila Vazia!");
 	}
@@ -43,11 +47,16 @@ int Fila_vazia (Fila *f){
 
 
 // insere elemento novo na fila (sempre no final)
-void Fila_insere (Fila *f, int v){
+void Fila_insere (Fila *f, Pedido pedido){
 	NoFila *novo = (NoFila*) malloc(sizeof(NoFila));
-	novo->info = v;
+	novo->info.numero = pedido.numero;
+	strcpy(novo->info.cpf , pedido.cpf);
+	strcpy(novo->info.cor, pedido.cor);
+	novo->info.altura = pedido.altura;
+	novo->info.largura = pedido.largura;
+
 	novo->prox = NULL;
-	if (f->fim != NULL) 
+	if (f->fim != NULL)
 		f->fim->prox = novo;
 
 	f->fim = novo;
@@ -64,7 +73,7 @@ int Fila_retira (Fila* f){
 	removido = f->ini;
 	novo_ini = f->ini->prox;
 
-	valor = f->ini->info;
+	valor = f->ini->info.numero;
 	f->ini = novo_ini;
 	if (f->ini == NULL) /* fila ficou vazia? */
 		f->fim = NULL;

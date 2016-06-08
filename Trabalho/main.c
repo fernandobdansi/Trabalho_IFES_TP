@@ -13,6 +13,7 @@ Rafael S. Guimaraes <rafaelg@ifes.edu.br>
 
 int main(){
 
+	int opc;
 	ListaMesas *lm;
 	ListaClientes *lc;
 	Fila *fp;
@@ -21,10 +22,13 @@ int main(){
 	lc = ListaClientes_inicializa();
 	fp = Fila_inicializa();
 
+
+
 	/* Exemplo de utilizacao */
 
+//do{
 	printf("########## IFES - TECNICAS DE PROGRAMACAO ##########\n");
-        printf("#  SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
+  printf("##  SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
 	printf("####################################################\n");
 	printf("Clientes: Lista\n");
 	printf("Mesas: Lista\n");
@@ -36,10 +40,12 @@ int main(){
 	printf("5 - Imprimir Clientes\n");
 	printf("6 - Imprimir Mesas\n");
 	printf("7 - Imprimir Pedidos\n");
-	printf("0 - Sair do Programa\n\n");	
+	printf("0 - Sair do Programa\n\n");
 	printf("Digite a opcao desejada: \n");
+	scanf("%i",&opc);
 
-	/* Cliente cli;
+
+	/*Cliente cli;
 	printf("Informe o nome: ");
 	scanf("%s",&cli.nome);
 	printf("Informe o cpf: ");
@@ -48,6 +54,8 @@ int main(){
 	scanf("%s",&cli.nascimento);
 
 	ListaClientes_insere(l,cli);
-	
+
 	Fim Exemplo */
+//}while(opc = 0);
+return 0;
 }

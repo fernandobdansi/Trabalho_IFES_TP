@@ -1,5 +1,5 @@
 /*
-Curso Tecnico em Informatica - Instituto Federal do Espirito Santo - Cachoeiro de Itapemirim
+Arquivo: lista_mesas.c (Implementacao das funcoes da Mesa)
 */
 
 #include <stdio.h>
@@ -26,10 +26,10 @@ void ListaMesas_imprime (ListaMesas *l){
 
 	printf("\n\t\tElementos da Lista\n");
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		printf("\t\tID = %i\n", aux->info->id);
-		printf("\t\tCOR = %s\n", aux->info->cor);
-		printf("\t\tALTURA = %f\n", aux->info->altura);
-		printf("\t\tLARGURA = %f\n", aux->info->largura);
+		printf("\t\tID = %i\n", aux->info.id);
+		printf("\t\tCOR = %s\n", aux->info.cor);
+		printf("\t\tALTURA = %f\n", aux->info.altura);
+		printf("\t\tLARGURA = %f\n", aux->info.largura);
 
 	printf("\n");
 }
@@ -45,7 +45,7 @@ int ListaMesas_vazia (ListaMesas *l){
 int ListaMesas_busca (ListaMesas *l, int id){
 	NoListaMesas *aux; /* variavel auxiliar para percorrer a lista */
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		if (aux->info->id == id)
+		if (aux->info.id == id)
 			return 1;
 
 	// nao achou o elemento
@@ -57,10 +57,10 @@ int ListaMesas_busca (ListaMesas *l, int id){
 void ListaMesas_insere (ListaMesas *l, Mesa mesa){
 	NoListaMesas *novo = (NoListaMesas *) malloc(sizeof(NoListaMesas));
 
-	novo->info->id = mesa.id;
-	novo->info->cor = mesa.cor;
-	novo->info->altura = mesa.altura;
-	novo->info->largura = mesa.largura;
+	novo->info.id = mesa.id;
+	strcpy(novo->info.cor, mesa.cor);
+	novo->info.altura = mesa.altura;
+	novo->info.largura = mesa.largura;
 
 	novo->prox = l->prim;
 	novo->ant = NULL;
@@ -71,10 +71,10 @@ void ListaMesas_insere (ListaMesas *l, Mesa mesa){
 }
 
 //remove um elemento da lista
-int ListaMesas_retira (ListaMesas* l, Mesa mesa){
+int ListaMesas_retira (ListaMesas* l, int id){
 	NoListaMesas *aux = l->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
-	while ( (aux != NULL) && (aux->info == v) ) {
+	while ( (aux != NULL) && (aux->info.id == id) ) {
 		aux = aux->prox;
 	}
 	if(aux != NULL){

@@ -1,6 +1,6 @@
 /*
-Arquivo: lista_clientes.c (Implementacao das funcoes)
-Instituto Federal do Espirito SantoCachoeiro de Itapemirim
+Arquivo: lista_clientes.c (Implementacao das funcoes do Cliente)
+
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,9 +26,9 @@ void ListaClientes_imprime (ListaClientes *l){
 
 	printf("\n\t\tElementos da ListaClientes\n");
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		printf("\t\tNOME = %s\n", aux->info->nome);
-		printf("\t\tCPF = %s\n", aux->info->cpf);
-		printf("\t\tNASCIMENTO = %s\n", aux->info->nascimento);
+		printf("\t\tNOME = %s\n", aux->info.nome);
+		printf("\t\tCPF = %s\n", aux->info.cpf);
+		printf("\t\tNASCIMENTO = %s\n", aux->info.nascimento);
 
 	printf("\n");
 }
@@ -44,7 +44,7 @@ int ListaClientes_vazia (ListaClientes *l){
 int ListaClientes_busca (ListaClientes *l, char cpf[15]){
 	NoListaClientes *aux; /* variavel auxiliar para percorrer a lista */
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		if (strcmp(aux->info->cpf, cpf) == 0)
+		if (strcmp(aux->info.cpf, cpf) == 0)
 			return 1;
 
 	// nao achou o elemento
@@ -55,9 +55,9 @@ int ListaClientes_busca (ListaClientes *l, char cpf[15]){
 // insere elemento novo na lista
 void ListaClientes_insere (ListaClientes *l, Cliente cliente){
 	NoListaClientes *novo = (NoListaClientes*) malloc(sizeof(NoListaClientes));
-	strcpy(novo->info->cpf, cliente.cpf);
-	strcpy(novo->info->nome, cliente.nome);
-	strcpy(novo->info->nascimento, cliente.nascimento);
+	strcpy(novo->info.cpf, cliente.cpf);
+	strcpy(novo->info.nome, cliente.nome);
+	strcpy(novo->info.nascimento, cliente.nascimento);
 	novo->prox = l->prim;
 	novo->ant = NULL;
 	/* nao esta vazia, ou seja, este nao eh o primeiro elemento da lista */
@@ -70,7 +70,7 @@ void ListaClientes_insere (ListaClientes *l, Cliente cliente){
 int ListaClientes_retira (ListaClientes* l, char cpf[15]){
 	NoListaClientes *aux = l->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
-	while ( (aux != NULL) && ((!(strcmp(aux->info->cpf, cpf)))) ) {
+	while ( (aux != NULL) && ((strcmp(aux->info.cpf, cpf)==0))) {
 		aux = aux->prox;
 	}
 	if(aux != NULL){
