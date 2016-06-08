@@ -26,7 +26,9 @@ void ListaClientes_imprime (ListaClientes *l){
 
 	printf("\n\t\tElementos da ListaClientes\n");
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		printf("\t\tInfo = %c\n", aux->info);
+		printf("\t\tNOME = %s\n", aux->info->nome);
+		printf("\t\tCPF = %s\n", aux->info->cpf);
+		printf("\t\tNASCIMENTO = %s\n", aux->info->nascimento);
 
 	printf("\n");
 }
@@ -39,21 +41,23 @@ int ListaClientes_vazia (ListaClientes *l){
 
 
 // busca um elemento na lista
-int ListaClientes_busca (ListaClientes *l, int v){
+int ListaClientes_busca (ListaClientes *l, char cpf[15]){
 	NoListaClientes *aux; /* variavel auxiliar para percorrer a lista */
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		if (aux->info == v)
+		if (strcmp(aux->info->cpf, cpf) == 0)
 			return 1;
 
 	// nao achou o elemento
-	return 0; 
+	return 0;
 }
 
 
 // insere elemento novo na lista
-void ListaClientes_insere (ListaClientes *l, int v){
+void ListaClientes_insere (ListaClientes *l, Cliente cliente){
 	NoListaClientes *novo = (NoListaClientes*) malloc(sizeof(NoListaClientes));
-	novo->info = v;
+	strcpy(novo->info->cpf, cliente.cpf);
+	strcpy(novo->info->nome, cliente.nome);
+	strcpy(novo->info->nascimento, cliente.nascimento);
 	novo->prox = l->prim;
 	novo->ant = NULL;
 	/* nao esta vazia, ou seja, este nao eh o primeiro elemento da lista */
@@ -63,10 +67,10 @@ void ListaClientes_insere (ListaClientes *l, int v){
 }
 
 //remove um elemento da lista
-int ListaClientes_retira (ListaClientes* l, int v){
+int ListaClientes_retira (ListaClientes* l, char cpf[15]){
 	NoListaClientes *aux = l->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
-	while ( (aux != NULL) && (aux->info == v) ) {
+	while ( (aux != NULL) && ((!(strcmp(aux->info->cpf, cpf)))) ) {
 		aux = aux->prox;
 	}
 	if(aux != NULL){

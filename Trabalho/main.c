@@ -24,7 +24,7 @@ int main(){
 	/* Exemplo de utilizacao */
 
 	printf("########## IFES - TECNICAS DE PROGRAMACAO ##########\n");
-  printf("#  SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
+        printf("#  SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
 	printf("####################################################\n");
 	printf("Clientes: Lista\n");
 	printf("Mesas: Lista\n");
@@ -36,7 +36,7 @@ int main(){
 	printf("5 - Imprimir Clientes\n");
 	printf("6 - Imprimir Mesas\n");
 	printf("7 - Imprimir Pedidos\n");
-	printf("0 - Sair do Programa\n\n");
+	printf("0 - Sair do Programa\n\n");	
 	printf("Digite a opcao desejada: \n");
 
 	/* Cliente cli;
@@ -48,6 +48,6 @@ int main(){
 	scanf("%s",&cli.nascimento);
 
 	ListaClientes_insere(l,cli);
-
+	
 	Fim Exemplo */
 }

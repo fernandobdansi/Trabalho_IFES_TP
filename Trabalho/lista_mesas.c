@@ -26,7 +26,10 @@ void ListaMesas_imprime (ListaMesas *l){
 
 	printf("\n\t\tElementos da Lista\n");
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		printf("\t\tInfo = %d\n", aux->info);
+		printf("\t\tID = %i\n", aux->info->id);
+		printf("\t\tCOR = %s\n", aux->info->cor);
+		printf("\t\tALTURA = %f\n", aux->info->altura);
+		printf("\t\tLARGURA = %f\n", aux->info->largura);
 
 	printf("\n");
 }
@@ -39,21 +42,26 @@ int ListaMesas_vazia (ListaMesas *l){
 
 
 // busca um elemento na lista
-int ListaMesas_busca (ListaMesas *l, int v){
+int ListaMesas_busca (ListaMesas *l, int id){
 	NoListaMesas *aux; /* variavel auxiliar para percorrer a lista */
 	for (aux = l->prim; aux != NULL; aux = aux->prox)
-		if (aux->info == v)
+		if (aux->info->id == id)
 			return 1;
 
 	// nao achou o elemento
-	return 0; 
+	return 0;
 }
 
 
 // insere elemento novo na lista
-void ListaMesas_insere (ListaMesas *l, int v){
+void ListaMesas_insere (ListaMesas *l, Mesa mesa){
 	NoListaMesas *novo = (NoListaMesas *) malloc(sizeof(NoListaMesas));
-	novo->info = v;
+
+	novo->info->id = mesa.id;
+	novo->info->cor = mesa.cor;
+	novo->info->altura = mesa.altura;
+	novo->info->largura = mesa.largura;
+
 	novo->prox = l->prim;
 	novo->ant = NULL;
 	/* nao esta vazia, ou seja, este nao eh o primeiro elemento da lista */
@@ -63,7 +71,7 @@ void ListaMesas_insere (ListaMesas *l, int v){
 }
 
 //remove um elemento da lista
-int ListaMesas_retira (ListaMesas* l, int v){
+int ListaMesas_retira (ListaMesas* l, Mesa mesa){
 	NoListaMesas *aux = l->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
 	while ( (aux != NULL) && (aux->info == v) ) {
