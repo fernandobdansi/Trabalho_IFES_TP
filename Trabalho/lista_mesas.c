@@ -27,9 +27,11 @@ void ListaMesas_imprime (ListaMesas *lm){
 	printf("########## Elementos da ListaMesas: #############\n");
 	for (aux = lm->prim; aux != NULL; aux = aux->prox){
 		printf("\t\tID = %i\n", aux->info.id);
+	/*
 		printf("\t\tCOR = %s\n", aux->info.cor);
 		printf("\t\tALTURA = %.2f\n", aux->info.altura);
 		printf("\t\tLARGURA = %.2f\n", aux->info.largura);
+	*/
 		printf("\n");
 	}
 }

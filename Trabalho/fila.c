@@ -28,10 +28,12 @@ void Fila_imprime (Fila *fp){
 		printf("############## Elementos da Fila: ###############\n");
 		for (aux = fp->ini; aux != NULL; aux = aux->prox){
 			printf("|NUMERO DO PED: %d| \n", aux->info.numero);
+		/*
 			printf("|CPF DO PED: %s| \n", aux->info.cpf);
 			printf("|COR DO PED: %s| \n", aux->info.cor);
 			printf("|ALTURA DO PED: %.2f| \n", aux->info.altura);
 			printf("|LARGURA DO PED: %.2f| \n", aux->info.largura);
+		*/
 			printf("<- fim \n");
 		}
 	}else{

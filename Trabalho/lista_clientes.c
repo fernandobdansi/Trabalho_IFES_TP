@@ -27,8 +27,10 @@ void ListaClientes_imprime (ListaClientes *lc){
 	printf("######### Elementos da ListaClientes: ###########\n");
 	for (aux = lc->prim; aux != NULL; aux = aux->prox){
 		printf("\t\tNOME = %s\n", aux->info.nome);
+	/*
 		printf("\t\tCPF = %s\n", aux->info.cpf);
 		printf("\t\tNASCIMENTO = %s\n", aux->info.nascimento);
+	*/
 		printf("\n");
  	}
 }
