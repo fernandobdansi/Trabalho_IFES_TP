@@ -29,6 +29,7 @@ int main(){
 	/* Exemplo de utilizacao */
 
 do{
+
 	printf("########## IFES - TECNICAS DE PROGRAMACAO ##########\n");
   printf("## SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
 	printf("####################################################\n");
@@ -50,14 +51,14 @@ do{
 	Pedido ped;
 	switch (opc) {
 		case 1:
-
+				getchar();
 				printf("Informe o nome: ");
-				scanf("%s",cli.nome);
+				gets(cli.nome);
 				printf("Informe o cpf: ");
-				scanf("%s",cli.cpf);
+				gets(cli.cpf);
 				printf("Informe a data de nascimento: ");
-				scanf("%s",cli.nascimento);
-				ListaClientes_insere(&lc, cli);
+				gets(cli.nascimento);
+				ListaClientes_insere(lc, cli);
 		break;
 		case 2:
 
@@ -69,7 +70,7 @@ do{
 				scanf("%f",&mes.altura);
 				printf("Digite a largura: ");
 				scanf("%f",&mes.largura);
-				ListaMesas_insere(&lm, mes);
+				ListaMesas_insere(lm, mes);
 		break;
 		case 3:
 
@@ -91,7 +92,10 @@ do{
 
 		break;
 		case 5:
-
+				printf("############# Imprimindo Cliente: ###############\n");
+				ListaClientes_imprime (lc);
+				printf("#################################################\n");
+				system("sleep 5");
 		break;
 		case 6:
 
@@ -100,14 +104,15 @@ do{
 
 		break;
 		case 0:
-
+				printf("\n Saindo do Programa!!!\n");
+				system("sleep 2");
 		break;
 		default:
+		system("sleep 2");
 		printf("Opção Invalidada!!!\n");
 		break;
 	}
-
-
+	system("clear");
 }while(opc != 0);
 return 0;
 }

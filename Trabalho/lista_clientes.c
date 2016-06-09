@@ -24,13 +24,13 @@ ListaClientes* ListaClientes_inicializa (){
 void ListaClientes_imprime (ListaClientes *lc){
 	NoListaClientes *aux; /* variavel auxiliar para percorrer a fila */
 
-	printf("\n\t\tElementos da ListaClientes\n");
-	for (aux = lc->prim; aux != NULL; aux = aux->prox)
+	printf("######### Elementos da ListaClientes: ###########\n");
+	for (aux = lc->prim; aux != NULL; aux = aux->prox){
 		printf("\t\tNOME = %s\n", aux->info.nome);
 		printf("\t\tCPF = %s\n", aux->info.cpf);
 		printf("\t\tNASCIMENTO = %s\n", aux->info.nascimento);
-
-	printf("\n");
+		printf("\n");
+ 	}
 }
 
 
