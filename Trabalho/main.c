@@ -30,9 +30,9 @@ int main(){
 
 do{
 
-	printf("########## IFES - TECNICAS DE PROGRAMACAO ##########\n");
-  printf("## SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO #\n");
-	printf("####################################################\n");
+	printf("########## IFES - TECNICAS DE PROGRAMACAO ###########\n");
+  printf("## SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO ##\n");
+	printf("#####################################################\n");
 	printf("Clientes: Lista\n");
 	printf("Mesas: Lista\n");
 	printf("Pedidos: Fila\n");
@@ -85,6 +85,7 @@ do{
 				scanf("%f",&ped.altura);
 				printf("Digite a largura: ");
 				scanf("%f",&ped.largura);
+				Fila_insere(fp, ped);
 
 		break;
 		case 4:
@@ -106,6 +107,10 @@ do{
 
 		break;
 		case 7:
+				printf("############## Imprimindo Pedidos: ##############\n");
+				Fila_imprime (fp);
+				printf("#################################################\n");
+				system("sleep 5");
 
 		break;
 		case 0:

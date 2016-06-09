@@ -21,19 +21,19 @@ Fila* Fila_inicializa (){
 }
 
 // imprime os elementos da fila
-void Fila_imprime (Fila *f){
+void Fila_imprime (Fila *fp){
 	NoFila *aux; /* variavel auxiliar para percorrer a fila */
 
-	if(f->ini != NULL){
-		printf("\n\t\tElementos da Fila\n\n");
-		printf("\t\tPEDIDOS: \n");
-		for (aux = f->ini; aux != NULL; aux = aux->prox)
+	if(fp->ini != NULL){
+		printf("############## Elementos da Fila: ###############\n");
+		for (aux = fp->ini; aux != NULL; aux = aux->prox){
 			printf("|NUMERO DO PED: %d| \n", aux->info.numero);
 			printf("|CPF DO PED: %s| \n", aux->info.cpf);
 			printf("|COR DO PED: %s| \n", aux->info.cor);
-			printf("|ALTURA DO PED: %f| \n", aux->info.altura);
-			printf("|LARGURA DO PED: %f| \n", aux->info.largura);
-		printf("<- fim \n");
+			printf("|ALTURA DO PED: %.2f| \n", aux->info.altura);
+			printf("|LARGURA DO PED: %.2f| \n", aux->info.largura);
+			printf("<- fim \n");
+		}
 	}else{
 		printf("\n\t\tFila Vazia!");
 	}
@@ -41,13 +41,13 @@ void Fila_imprime (Fila *f){
 }
 
 // retorna 1 se vazia ou 0 se nao vazia
-int Fila_vazia (Fila *f){
-	return (f->ini == NULL);
+int Fila_vazia (Fila *fp){
+	return (fp->ini == NULL);
 }
 
 
 // insere elemento novo na fila (sempre no final)
-void Fila_insere (Fila *f, Pedido pedido){
+void Fila_insere (Fila *fp, Pedido pedido){
 	NoFila *novo = (NoFila*) malloc(sizeof(NoFila));
 	novo->info.numero = pedido.numero;
 	strcpy(novo->info.cpf , pedido.cpf);
@@ -56,27 +56,27 @@ void Fila_insere (Fila *f, Pedido pedido){
 	novo->info.largura = pedido.largura;
 
 	novo->prox = NULL;
-	if (f->fim != NULL)
-		f->fim->prox = novo;
+	if (fp->fim != NULL)
+		fp->fim->prox = novo;
 
-	f->fim = novo;
-	if (f->ini==NULL) /* fila antes vazia? */
-		f->ini = f->fim;
+	fp->fim = novo;
+	if (fp->ini==NULL) /* fila antes vazia? */
+		fp->ini = fp->fim;
 }
 
 // retira um elemento da fila (sempre do inicio, ou seja o primeiro)
-int Fila_retira (Fila* f){
+int Fila_retira (Fila* fp){
 	NoFila* novo_ini;
 	NoFila* removido;
 	int valor;
 
-	removido = f->ini;
-	novo_ini = f->ini->prox;
+	removido = fp->ini;
+	novo_ini = fp->ini->prox;
 
-	valor = f->ini->info.numero;
-	f->ini = novo_ini;
-	if (f->ini == NULL) /* fila ficou vazia? */
-		f->fim = NULL;
+	valor = fp->ini->info.numero;
+	fp->ini = novo_ini;
+	if (fp->ini == NULL) /* fila ficou vazia? */
+		fp->fim = NULL;
 	free(removido);
 	return valor;
 }
