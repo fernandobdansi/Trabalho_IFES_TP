@@ -65,7 +65,8 @@ do{
 				printf("Digite o ID: ");
 				scanf("%i",&mes.id);
 				printf("Digite a cor: ");
-				scanf("%s",mes.cor);
+				getchar();
+				gets(mes.cor);
 				printf("Digite a altura: ");
 				scanf("%f",&mes.altura);
 				printf("Digite a largura: ");
@@ -98,6 +99,10 @@ do{
 				system("sleep 5");
 		break;
 		case 6:
+				printf("############## Imprimindo Mesas: ################\n");
+				ListaMesas_imprime (lm);
+				printf("#################################################\n");
+				system("sleep 5");
 
 		break;
 		case 7:
