@@ -23,9 +23,9 @@ typedef struct lista {
 } ListaMesas;
 
 ListaMesas* ListaMesas_inicializa ();
-void ListaMesas_insere (ListaMesas *l, Mesa mes);
-int ListaMesas_retira (ListaMesas *l,int id);
-void ListaMesas_imprime (ListaMesas *l);
-int ListaMesas_vazia (ListaMesas *l);
+void ListaMesas_insere (ListaMesas *lm, Mesa mes);
+int ListaMesas_retira (ListaMesas *lm,int id);
+void ListaMesas_imprime (ListaMesas *lm);
+int ListaMesas_vazia (ListaMesas *lm);
 
 #endif

@@ -21,9 +21,9 @@ typedef struct lista_clientes {
 } ListaClientes;
 
 ListaClientes* ListaClientes_inicializa ();
-void ListaClientes_insere (ListaClientes *l, Cliente cli);
-int ListaClientes_retira (ListaClientes *l, char cpf[15]);
-void ListaClientes_imprime (ListaClientes *l);
-int ListaClientes_vazia (ListaClientes *l);
+void ListaClientes_insere (ListaClientes *lc, Cliente cli);
+int ListaClientes_retira (ListaClientes *lc, char cpf[15]);
+void ListaClientes_imprime (ListaClientes *lc);
+int ListaClientes_vazia (ListaClientes *lc);
 
 #endif
