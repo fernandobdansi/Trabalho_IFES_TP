@@ -26,9 +26,9 @@ typedef struct fila {
 
 //Prototipo das funcoes
 Fila* Fila_inicializa ();
-void Fila_insere (Fila *p, Pedido ped);
-int Fila_retira (Fila *p);
-void Fila_imprime (Fila *p);
-int Fila_vazia (Fila *p);
+void Fila_insere (Fila *fp, Pedido ped);
+int Fila_retira (Fila *fp);
+void Fila_imprime (Fila *fp);
+int Fila_vazia (Fila *fp);
 
 #endif

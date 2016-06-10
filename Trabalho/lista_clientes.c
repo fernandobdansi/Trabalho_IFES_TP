@@ -44,7 +44,7 @@ int ListaClientes_vazia (ListaClientes *lc){
 
 // busca um elemento na lista
 int ListaClientes_busca (ListaClientes *lc, char cpf[15]){
-	NoListaClientes *aux; /* variavel auxiliar para percorrer a lista */
+	NoListaClientes *aux; 	/* variavel auxiliar para percorrer a lista */
 	for (aux = lc->prim; aux != NULL; aux = aux->prox)
 		if (strcmp(aux->info.cpf, cpf) == 0)
 			return 1;

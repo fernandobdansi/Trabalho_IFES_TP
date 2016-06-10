@@ -22,10 +22,6 @@ int main(){
 	lc = ListaClientes_inicializa();
 	fp = Fila_inicializa();
 
-
-
-
-
 	/* Exemplo de utilizacao */
 
 do{
@@ -49,6 +45,7 @@ do{
 	Cliente cli;
 	Mesa mes;
 	Pedido ped;
+	int pedidoRetirado;
 	switch (opc) {
 		case 1:
 				getchar();
@@ -90,7 +87,10 @@ do{
 		break;
 		case 4:
 
-
+				printf("Fechando Pedido!!!\n");
+				pedidoRetirado = Fila_retira(fp);
+				printf("O Pedido %i foi fechado!\n",pedidoRetirado);
+				system("sleep 5");
 
 		break;
 		case 5:
