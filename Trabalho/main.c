@@ -1,7 +1,7 @@
 /*
 ------------------------------------------
 -  Instituto Federal do Espirito Santo   -
-Rafael S. Guimaraes <rafaelg@ifes.edu.br>
+Fernando Bueno Dansi, Artur Zampirolli
 ------------------------------------------
 */
 #include <stdio.h>
