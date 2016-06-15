@@ -28,12 +28,11 @@ void Fila_imprime (Fila *fp){
 		printf("############## Elementos da Fila: ###############\n");
 		for (aux = fp->ini; aux != NULL; aux = aux->prox){
 			printf("|NUMERO DO PED: %d| \n", aux->info.numero);
-		/*
 			printf("|CPF DO PED: %s| \n", aux->info.cpf);
 			printf("|COR DO PED: %s| \n", aux->info.cor);
 			printf("|ALTURA DO PED: %.2f| \n", aux->info.altura);
 			printf("|LARGURA DO PED: %.2f| \n", aux->info.largura);
-		*/
+
 			printf("<- fim \n");
 		}
 	}else{
@@ -67,15 +66,18 @@ void Fila_insere (Fila *fp, Pedido pedido){
 }
 
 // retira um elemento da fila (sempre do inicio, ou seja o primeiro)
-int Fila_retira (Fila* fp){
+Pedido Fila_retira (Fila* fp){
 	NoFila* novo_ini;
 	NoFila* removido;
-	int valor;
+	Pedido valor;
 
 	removido = fp->ini;
 	novo_ini = fp->ini->prox;
 
-	valor = fp->ini->info.numero;
+	strcpy(valor.cor, fp->ini->info.cor);
+	valor.largura = fp->ini->info.largura;
+	valor.altura = fp->ini->info.altura;
+
 	fp->ini = novo_ini;
 	if (fp->ini == NULL) /* fila ficou vazia? */
 		fp->fim = NULL;

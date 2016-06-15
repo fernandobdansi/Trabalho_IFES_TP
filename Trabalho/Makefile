@@ -2,7 +2,7 @@ FILE = trabalhoTP
 
 
 all :
-	gcc -c fila*.c
-	gcc -c lista*.c
-	gcc -o $(FILE) main.c lista_mesas.o lista_clientes.o fila.o
+	gcc -Wall -c fila*.c
+	gcc -Wall -c lista*.c
+	gcc -Wall -o $(FILE) main.c lista_mesas.o lista_clientes.o fila.o
 	rm -f *.o

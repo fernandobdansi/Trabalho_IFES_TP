@@ -27,11 +27,9 @@ void ListaMesas_imprime (ListaMesas *lm){
 	printf("########## Elementos da ListaMesas: #############\n");
 	for (aux = lm->prim; aux != NULL; aux = aux->prox){
 		printf("\t\tID = %i\n", aux->info.id);
-	/*
 		printf("\t\tCOR = %s\n", aux->info.cor);
 		printf("\t\tALTURA = %.2f\n", aux->info.altura);
 		printf("\t\tLARGURA = %.2f\n", aux->info.largura);
-	*/
 		printf("\n");
 	}
 }
@@ -73,10 +71,10 @@ void ListaMesas_insere (ListaMesas *lm, Mesa mesa){
 }
 
 //remove um elemento da lista
-int ListaMesas_retira (ListaMesas* lm, int id){
+int ListaMesas_retira (ListaMesas* lm, char cor[], float alt, float larg){
 	NoListaMesas *aux = lm->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
-	while ( (aux != NULL) && (aux->info.id == id) ) {
+	while ( (aux != NULL) && (strcmp(aux->info.cor, cor)!=0) ) {
 		aux = aux->prox;
 	}
 	if(aux != NULL){

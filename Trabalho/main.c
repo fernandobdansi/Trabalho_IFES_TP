@@ -45,7 +45,10 @@ do{
 	Cliente cli;
 	Mesa mes;
 	Pedido ped;
-	int pedidoRetirado;
+	char cor[15];
+	float larg, alt;
+	int mesaRetirada;
+	Pedido pedidoRetirado;
 	switch (opc) {
 		case 1:
 				getchar();
@@ -89,7 +92,15 @@ do{
 
 				printf("Fechando Pedido!!!\n");
 				pedidoRetirado = Fila_retira(fp);
-				printf("O Pedido %i foi fechado!\n",pedidoRetirado);
+				strcpy(cor, pedidoRetirado.cor);
+				alt = pedidoRetirado.altura;
+				larg = pedidoRetirado.largura;
+				printf("%s\n",pedidoRetirado.cor);
+				printf("%.2f\n",pedidoRetirado.altura);
+				printf("%.2f\n",pedidoRetirado.largura);
+				mesaRetirada = ListaMesas_retira(lm, pedidoRetirado.cor, pedidoRetirado.altura, pedidoRetirado.largura);
+				printf("O Pedido %.2f foi fechado!\n",pedidoRetirado.altura);
+				printf("Mesa Retirada = %i\n",mesaRetirada);
 				system("sleep 5");
 
 		break;
@@ -104,22 +115,20 @@ do{
 				ListaMesas_imprime (lm);
 				printf("#################################################\n");
 				system("sleep 5");
-
 		break;
 		case 7:
 				printf("############## Imprimindo Pedidos: ##############\n");
 				Fila_imprime (fp);
 				printf("#################################################\n");
 				system("sleep 5");
-
 		break;
 		case 0:
 				printf("\n Saindo do Programa!!!\n");
 				system("sleep 2");
 		break;
 		default:
-		system("sleep 2");
-		printf("Opção Invalidada!!!\n");
+				system("sleep 2");
+				printf("Opção Invalidada!!!\n");
 		break;
 	}
 	system("clear");
