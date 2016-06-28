@@ -95,11 +95,11 @@ do{
 				strcpy(cor, pedidoRetirado.cor);
 				alt = pedidoRetirado.altura;
 				larg = pedidoRetirado.largura;
-				printf("%s\n",pedidoRetirado.cor);
-				printf("%.2f\n",pedidoRetirado.altura);
-				printf("%.2f\n",pedidoRetirado.largura);
+				//printf("%s\n",pedidoRetirado.cor);
+				//printf("%.2f\n",pedidoRetirado.altura);
+				//printf("%.2f\n",pedidoRetirado.largura);
 				mesaRetirada = ListaMesas_retira(lm, pedidoRetirado.cor, pedidoRetirado.altura, pedidoRetirado.largura);
-				printf("O Pedido %.2f foi fechado!\n",pedidoRetirado.altura);
+				//printf("O Pedido %.2f foi fechado!\n",pedidoRetirado.altura);
 				printf("Mesa Retirada = %i\n",mesaRetirada);
 				system("sleep 5");
 

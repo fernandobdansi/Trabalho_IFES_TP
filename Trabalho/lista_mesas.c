@@ -74,7 +74,7 @@ void ListaMesas_insere (ListaMesas *lm, Mesa mesa){
 int ListaMesas_retira (ListaMesas* lm, char cor[], float alt, float larg){
 	NoListaMesas *aux = lm->prim; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
-	while ( (aux != NULL) && (strcmp(aux->info.cor, cor)!=0) ) {
+	while ( (aux != NULL) && (strcmp(aux->info.cor, cor)!=0) && (aux->info.altura != alt) && (aux->info.largura != larg) ) {
 		aux = aux->prox;
 	}
 	if(aux != NULL){
