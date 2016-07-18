@@ -39,6 +39,7 @@ do{
 	printf("5 - Imprimir Clientes\n");
 	printf("6 - Imprimir Mesas\n");
 	printf("7 - Imprimir Pedidos\n");
+	printf("8 - Imprimir Clientes por Idade\n");
 	printf("0 - Sair do Programa\n\n");
 	printf("Digite a opcao desejada: \n");
 	scanf("%i",&opc);
@@ -48,6 +49,7 @@ do{
 	char cor[15];
 	float larg, alt;
 	int mesaRetirada;
+	int idade;
 	Pedido pedidoRetirado;
 	switch (opc) {
 		case 1:
@@ -58,6 +60,8 @@ do{
 				gets(cli.cpf);
 				printf("Informe a data de nascimento: ");
 				gets(cli.nascimento);
+				printf("Digite a Idade:\n");
+				scanf("%i",&cli.idade);
 				ListaClientes_insere(lc, cli);
 		break;
 		case 2:
@@ -90,17 +94,21 @@ do{
 		break;
 		case 4:
 
-				printf("Fechando Pedido!!!\n");
-				pedidoRetirado = Fila_retira(fp);
-				strcpy(cor, pedidoRetirado.cor);
-				alt = pedidoRetirado.altura;
-				larg = pedidoRetirado.largura;
-				//printf("%s\n",pedidoRetirado.cor);
-				//printf("%.2f\n",pedidoRetirado.altura);
-				//printf("%.2f\n",pedidoRetirado.largura);
-				mesaRetirada = ListaMesas_retira(lm, pedidoRetirado.cor, pedidoRetirado.altura, pedidoRetirado.largura);
-				//printf("O Pedido %.2f foi fechado!\n",pedidoRetirado.altura);
-				printf("Mesa Retirada = %i\n",mesaRetirada);
+			if(Fila_vazia(fp)==0){
+						printf("Fechando Pedido!!!\n");
+						pedidoRetirado = Fila_retira(fp);
+						strcpy(cor, pedidoRetirado.cor);
+						alt = pedidoRetirado.altura;
+						larg = pedidoRetirado.largura;
+						//printf("%s\n",pedidoRetirado.cor);
+						//printf("%.2f\n",pedidoRetirado.altura);
+						//printf("%.2f\n",pedidoRetirado.largura);
+						mesaRetirada = ListaMesas_retira(lm, pedidoRetirado.cor, pedidoRetirado.altura, pedidoRetirado.largura);
+						//printf("O Pedido %.2f foi fechado!\n",pedidoRetirado.altura);
+						printf("Mesa Retirada = %i\n",mesaRetirada);
+			}else{
+				printf("Lista Vazia\n");
+			}
 				system("sleep 5");
 
 		break;
@@ -122,6 +130,13 @@ do{
 				printf("#################################################\n");
 				system("sleep 5");
 		break;
+		case 8:
+				printf("Digite a Idade que deseja imprimir: \n");
+				scanf("%i",&idade);
+				ImprimiIdade(lc, idade);
+				system("sleep 5");
+				break;
+
 		case 0:
 				printf("\n Saindo do Programa!!!\n");
 				system("sleep 2");

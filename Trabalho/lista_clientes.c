@@ -27,6 +27,7 @@ void ListaClientes_imprime (ListaClientes *lc){
 	printf("######### Elementos da ListaClientes: ###########\n");
 	for (aux = lc->prim; aux != NULL; aux = aux->prox){
 		printf("\t\tNOME = %s\n", aux->info.nome);
+		printf("Idade = %i \n", aux->info.idade);
 	/*
 		printf("\t\tCPF = %s\n", aux->info.cpf);
 		printf("\t\tNASCIMENTO = %s\n", aux->info.nascimento);
@@ -34,6 +35,24 @@ void ListaClientes_imprime (ListaClientes *lc){
 		printf("\n");
  	}
 }
+
+void ImprimiIdade (ListaClientes *lc, int idade){
+	NoListaClientes *aux; /* variavel auxiliar para percorrer a fila */
+
+	printf("######### Elementos da ListaClientes Por Idade: ###########\n");
+	for (aux = lc->prim; aux != NULL; aux = aux->prox){
+		if(aux->info.idade >= idade){
+			printf("\t\tNOME = %s\n", aux->info.nome);
+			printf("Idade: %i\n",aux->info.idade);
+			/*
+				printf("\t\tCPF = %s\n", aux->info.cpf);
+				printf("\t\tNASCIMENTO = %s\n", aux->info.nascimento);
+			*/
+			printf("\n");
+		}
+ 	}
+}
+
 
 
 // retorna 1 se vazia ou 0 se nao vazia
@@ -60,6 +79,7 @@ void ListaClientes_insere (ListaClientes *lc, Cliente cliente){
 	strcpy(novo->info.cpf, cliente.cpf);
 	strcpy(novo->info.nome, cliente.nome);
 	strcpy(novo->info.nascimento, cliente.nascimento);
+	novo->info.idade = cliente.idade;
 	novo->prox = lc->prim;
 	novo->ant = NULL;
 	/* nao esta vazia, ou seja, este nao eh o primeiro elemento da lista */

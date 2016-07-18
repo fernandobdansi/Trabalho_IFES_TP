@@ -8,6 +8,7 @@ typedef struct cliente {
 	char cpf[15];
 	char nome[30];
 	char nascimento[17];
+	int idade;
 }Cliente;
 
 typedef struct no_lista_clientes {
@@ -24,6 +25,7 @@ ListaClientes* ListaClientes_inicializa ();
 void ListaClientes_insere (ListaClientes *lc, Cliente cli);
 int ListaClientes_retira (ListaClientes *lc, char cpf[15]);
 void ListaClientes_imprime (ListaClientes *lc);
+void ImprimiIdade (ListaClientes *lc, int idade);
 int ListaClientes_vazia (ListaClientes *lc);
 
 #endif
