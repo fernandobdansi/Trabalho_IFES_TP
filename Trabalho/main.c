@@ -27,7 +27,7 @@ int main(){
 do{
 
 	printf("########## IFES - TECNICAS DE PROGRAMACAO ###########\n");
-  printf("## SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO ##\n");
+        printf("## SISTEMA DE REGISTRO DE PEDIDOS MESAS DE GRANITO ##\n");
 	printf("#####################################################\n");
 	printf("Clientes: Lista\n");
 	printf("Mesas: Lista\n");
