@@ -147,6 +147,6 @@ do{
 		break;
 	}
 	system("clear");
-}while(opc != 0);
-return 0;
+   }while(opc != 0);
+  return 0;
 }
